@@ -1,6 +1,8 @@
 import pandas as pd
+import numpy as np
 import glob
 import os
+
 # Read the userlist Excel file
 userlist_df = pd.read_excel("C:/Users/Kawser/Downloads/selisech-user-licenses.xlsx")
 
@@ -31,3 +33,9 @@ for project_file in project_files:
 
     # Write the result DataFrame to a new Excel file
     result_df.to_excel(result_file_name, index=False)
+
+    # Print duplicate user names to console
+    duplicates_df = merged_df[merged_df.duplicated(subset='User Names', keep=False)]
+    if len(duplicates_df) > 0:
+        print("Duplicate user names found in file: " + os.path.basename(project_file))
+        print(np.array(duplicates_df))
