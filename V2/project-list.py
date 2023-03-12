@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # set path to folder containing project excel files
-path = "C:/Users/Kawser/project"
+path = "C:/Users/Kawser/Desktop/Azure-Devops-Board-Userlist-Extract-Automation/V2/final-list"
 
 # get list of project excel file names
 project_files = [f for f in os.listdir(path) if f.endswith('.xlsx')]
@@ -22,7 +22,7 @@ for project_file in project_files:
     project_access_data['Project Name'] = project_name
     
     # append project access data to combined access data
-    combined_access_data = combined_access_data.append(project_access_data[['User Names', 'Email', 'Access Level', 'Project Name']], ignore_index=True)
+    combined_access_data = pd.concat([combined_access_data, project_access_data[['User Names', 'Email', 'Access Level', 'Project Name']]], ignore_index=True)
 
 # load user access data from excel file into pandas dataframe
 user_access_data = pd.read_excel('C:/Users/Kawser/Downloads/selisech-user-licenses.xlsx')
@@ -39,5 +39,7 @@ final_access_data['Project Name'] = final_access_data.groupby(['User Names', 'Em
 # drop duplicate rows
 final_access_data.drop_duplicates(subset=['User Names', 'Email'], keep='first', inplace=True)
 
+final_access_data = final_access_data.sort_values(by=['Access Level_x'], ascending=True)
+
 # save merged access data to excel file
-final_access_data.to_excel('C:/Users/Kawser/file.xlsx', index=False)
+final_access_data.to_excel('file.xlsx', index=False)

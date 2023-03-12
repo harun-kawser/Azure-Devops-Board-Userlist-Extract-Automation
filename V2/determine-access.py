@@ -22,11 +22,12 @@ for project_file in project_files:
         "Email": merged_df["Email"],
         "Access Level": merged_df["Access Level"]
     })
+    result_df.sort_values("Access Level", inplace=True)
 
     # Get the project name from the file path and create a new file name
     project_name = os.path.basename(project_file).split(".")[0]
 
-    result_file_name = f"{project_name}.xlsx"
+    result_file_name = f"C:/Users/Kawser/Desktop/Azure-Devops-Board-Userlist-Extract-Automation/V2/final-list/{project_name}.xlsx"
 
     # Write the result DataFrame to a new Excel file
     result_df.to_excel(result_file_name, index=False)
