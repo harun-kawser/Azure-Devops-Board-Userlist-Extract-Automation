@@ -5,7 +5,7 @@ import os
 userlist_df = pd.read_excel("C:/Users/Kawser/Downloads/selisech-user-licenses.xlsx")
 
 # Get a list of all project Excel files in the directory
-project_files = glob.glob("C:/Users/Kawser/Desktop/project/*.xlsx")
+project_files = glob.glob("G:/Azure-Devops-Board-Userlist-Extract-Automation/projects/*.xlsx")
 
 # Loop through each project Excel file
 for project_file in project_files:
@@ -27,7 +27,7 @@ for project_file in project_files:
     # Get the project name from the file path and create a new file name
     project_name = os.path.basename(project_file).split(".")[0]
 
-    result_file_name = f"C:/Users/Kawser/Desktop/Azure-Devops-Board-Userlist-Extract-Automation/V2/final-list/{project_name}.xlsx"
+    result_file_name = f"G:/Azure-Devops-Board-Userlist-Extract-Automation/level-wise/{project_name}.xlsx"
 
     # Write the result DataFrame to a new Excel file
     result_df.to_excel(result_file_name, index=False)

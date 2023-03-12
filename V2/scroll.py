@@ -76,7 +76,7 @@ for project_name in projects_df["Project Names"]:
 
     # Save the DataFrame to an Excel file with the project name
     # Save the DataFrame to an Excel file
-    output_file_name = f"{project_name}.xlsx"
+    output_file_name = f"G:/projects/{project_name}.xlsx"
     df.to_excel(output_file_name, index=False)
     print(f"{output_file_name} has been saved.")
 
