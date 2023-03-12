@@ -28,5 +28,10 @@ for file_name in excel_files:
     spacer = pd.DataFrame([[]])
     merged_data = pd.concat([merged_data, spacer], ignore_index=True)
     
-# Write the merged data to a new Excel file
-merged_data.to_excel(os.path.join(files_path, 'G:/Azure-Devops-Board-Userlist-Extract-Automation/merged.xlsx'), index=False)
+# Count the rows for each project
+project_counts = merged_data.groupby('Project Name').count()
+
+# Write the merged data and project counts to a single Excel file with two sheets
+with pd.ExcelWriter(os.path.join(files_path, 'merged_with_counts.xlsx')) as writer:
+    merged_data.to_excel(writer, sheet_name='Merged Data', index=False)
+    project_counts.to_excel(writer, sheet_name='Project Counts')

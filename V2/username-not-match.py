@@ -3,10 +3,10 @@ import glob
 import os
 
 # Read the userlist Excel file
-userlist_df = pd.read_excel("C:/Users/Kawser/Downloads/selisech-user-licenses.xlsx")
+userlist_df = pd.read_excel("C:/Users/Kawser/Downloads/SELISESunrise-user-licenses.xlsx")
 
 # Get a list of all project Excel files in the directory
-project_files = glob.glob("G:/Azure-Devops-Board-Userlist-Extract-Automation/projects/*.xlsx")
+project_files = glob.glob("G:/Azure-Devops-Board-Userlist-Extract-Automation/SELISESunrise/*.xlsx")
 
 # Loop through each project Excel file
 for project_file in project_files:
@@ -36,7 +36,7 @@ for project_file in project_files:
 
     # Get the project name from the file path and create a new file name
     project_name = os.path.basename(project_file).split(".")[0]
-    result_file_name = f"G:/Azure-Devops-Board-Userlist-Extract-Automation/level-wise/{project_name}.xlsx"
+    result_file_name = f"G:/Azure-Devops-Board-Userlist-Extract-Automation/SELISESunrise-b/{project_name}.xlsx"
 
     # Write the result DataFrame to a new Excel file
     result_df.to_excel(result_file_name, index=False)

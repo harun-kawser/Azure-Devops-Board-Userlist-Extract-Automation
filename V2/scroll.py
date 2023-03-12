@@ -33,7 +33,7 @@ for project_name in projects_df["Project Names"]:
     print(f"Processing project {project_name}")
     
     # Navigate to the project's permission settings page
-    url = f"https://dev.azure.com/selisech/{project_name}/_settings/permissions"
+    url = f"https://dev.azure.com/SELISESunrise/{project_name}/_settings/permissions"
     driver.get(url)
 
     # Wait for the page to load
@@ -76,7 +76,7 @@ for project_name in projects_df["Project Names"]:
 
     # Save the DataFrame to an Excel file with the project name
     # Save the DataFrame to an Excel file
-    output_file_name = f"G:/projects/{project_name}.xlsx"
+    output_file_name = f"G:/Azure-Devops-Board-Userlist-Extract-Automation/SELISESunrise/{project_name}.xlsx"
     df.to_excel(output_file_name, index=False)
     print(f"{output_file_name} has been saved.")
 
