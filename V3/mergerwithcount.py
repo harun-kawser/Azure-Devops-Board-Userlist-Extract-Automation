@@ -28,7 +28,7 @@ for project_name, project_df in project_dataframes.items():
     project_users[project_name] = user_counts
 
 # Write the project dataframes to a new Excel file as tables in a single worksheet
-with pd.ExcelWriter('merged_data.xlsx', engine='xlsxwriter') as writer:
+with pd.ExcelWriter('merged_data2.xlsx', engine='xlsxwriter') as writer:
     workbook  = writer.book
     worksheet = workbook.add_worksheet('merged_data')
     bold      = workbook.add_format({'bold': True})
