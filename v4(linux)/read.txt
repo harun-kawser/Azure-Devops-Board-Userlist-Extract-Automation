@@ -1,0 +1,6 @@
+create Personal access token Read scope for code and work item
+pip install pandas
+pip install selenium
+pip install openpyxl
+sudo mv chromedriver /usr/local/bin/
+
